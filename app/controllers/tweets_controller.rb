@@ -1,5 +1,7 @@
 class TweetsController < ApplicationController
-    before_action :move_to_index ,except: :index
+    before_action :move_to_index ,except: [:index ,:about]
+    def about
+    end
     def index
       @tweets = Tweet.includes(:user).page(params[:page]).per(5).order("created_at DESC")
     end
@@ -25,6 +27,13 @@ class TweetsController < ApplicationController
         tweet.update(tweet_params)
       end
     end
+
+    def show
+      @tweet=Tweet.find(params[:id])
+      user=@tweet.user
+      @users=User.where(like_num: user.like_num)
+    end
+
 
 
       private

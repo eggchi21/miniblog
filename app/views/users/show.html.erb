@@ -1,8 +1,10 @@
- <div class="contents row" >
-    <p><%= @nickname %>さんの投稿一覧</p>
+<div class="container">
+ <p><%= @nickname %>さんの投稿一覧</p>
+ <p>好きな数字<%= @like_num %></p>
     <% @tweets.each do |tweet| %>
-        <%= tweet.id %>
-        <%= simple_format(tweet.text) %>
+     <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
     <% end %>
-    <%= paginate(@tweets) %>
-  </div>
+          <%= paginate(@tweets) %>
+    </div>
+</div>
+

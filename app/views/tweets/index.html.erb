@@ -9,27 +9,13 @@
 </head>
 <body>
 
-
-  <div class="contents row" >
+<div class="container">
     <% @tweets.each do |tweet| %>
-      <p><%= tweet.id %>番目</p>
-        <ul>    
-            <%if user_signed_in? && current_user.id==tweet.user_id%>
-            <li><%=link_to '編集',"/tweets/#{tweet.id}/edit", method: :get %></li>
-            <li><%=link_to '削除',"/tweets/#{tweet.id}", method: :delete %></li>
-            <%end%>
-        </ul>
-        <%= simple_format(tweet.text) %>
-        <span class="name">
-        <a href="/users/<%= tweet.user_id%>">
-        投稿者:<%= tweet.user.nickname %>
-        </a>
-        </span>
-      </div>
+      <%= render partial: "tweet", locals: { tweet: tweet } %>
     <% end %>
-      <%= paginate(@tweets) %>
-
-  </div>
+          <%= paginate(@tweets) %>
+    </div>
+</div>
 
 </body>
 </html>
