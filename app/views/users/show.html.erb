@@ -1,10 +1,16 @@
 <div class="container">
  <p><%= @nickname %>さんの投稿一覧</p>
+ <div><%= image_tag  @image ,:size =>'200x200'%></div>
  <p>好きな数字<%= @like_num %></p>
     <% @tweets.each do |tweet| %>
      <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
     <% end %>
+ <div class="carousel">
+    <h5>好きな数字がこの投稿者と同じ人</h5>
+    <% @users.each do |user| %>
+        <a class="carousel-item" href= "/users/<%= user.id %>" ><%=user.nickname%><%= image_tag  @image %></a>
+    <%end%>
+</div>
           <%= paginate(@tweets) %>
     </div>
 </div>
-

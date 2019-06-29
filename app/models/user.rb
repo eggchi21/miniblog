@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :tweets       
   validates :nickname, presence: true
   validates :like_num, numericality: {only_integer: true,greater_than: 0, less_than: 8}
-
+  mount_uploader :image, ImageUploader
 end

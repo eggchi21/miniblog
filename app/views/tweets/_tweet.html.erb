@@ -2,9 +2,9 @@
           <div class="card horizontal">
             <div class="card-image">
               <% if tweet.id%tweet.user.like_num==0 %>
-                <%= image_tag('aho.jpg') %>
+                <%= image_tag 'aho.jpg' ,:size =>'200x200'%>
               <%else%>  
-                <%= image_tag('normal.jpg') %>
+                <%= image_tag 'normal.jpg',:size =>'200x200'%>
               <%end%>  
               <span class="card-title"><%= tweet.id %>番目</</span>
             </div>

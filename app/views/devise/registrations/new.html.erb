@@ -1,54 +1,62 @@
 <div class="container">
   <div class="row">
-    <div class="col s12">
-          <h5><i class="material-icons">person_add</i> 新規登録</h5>
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %> 
-              <div class="row"> 
-                <div class="input-field col s6">
-                  <%= f.label :nickname %> <br />
-                  <%= f.text_field :nickname, autofocus: true, maxlength: "10" %>
-                </div>
+    <div class= "card-panel col s8 offset-s2 #fafafa grey lighten-5">
+      <div class="row">
+        <div class="col s10 offset-s1">
+          <div class="row">
+            <h5><i class="material-icons">person_add</i> SIGN UP</h5>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <%= f.label :nickname %> <br />
+              <%= f.text_field :nickname, autofocus: true, maxlength: "10" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <%= f.label :image,"ユーザー画像" %> <br /><br /><br />
+              <%= f.file_field :image %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s2">
+              <%= f.label :like_num,"好きな数字" %><br />
+              <%= f.number_field :like_num, autofocus: true, min: 1, max: 7 %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <%= f.label :email %><br />
+              <%= f.email_field :email %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <%= f.label :password %>
+              <% if @validatable%>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+            <div class="input-field col s6">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s4">
+              <div class="actions">
+                <a class="waves-effect waves-light btn"><%= f.submit "Sign up" %><i class="material-icons left">person_add</i></a>
               </div>
-              <div class="row">   
-                <div class="input-field col s2">
-                  <%= f.label :好きな数字 %><br />
-                  <%= f.number_field :like_num, autofocus: true, min: 1, max: 7 %>
-                </div>  
-              </div>
-              <div class="row">                
-                <div class="input-field col s6">
-                  <%= f.label :email %><br />
-                  <%= f.email_field :email %>
-                  
-                </div>
-              </div>  
-              <div class="row">   
-                <div class="input-field col s6">
-                  <%= f.label :password %>
-                  <% if @validatable%>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
-                  <% end %><br />
-                  <%= f.password_field :password, autocomplete: "new-password" %>
-                </div>
-                <div class="input-field col s6">
-                  <%= f.label :password_confirmation %><br />
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-                </div>
-               </div>
-               <div class="row">    
-                <div class="actions">
-                  <a class="waves-effect waves-light btn"><%= f.submit "Sign up" %><i class="material-icons left">person_add</i></a>
-                </div>
-               </div> 
+            </div>
+          </div>
           <% end %>
-                <div class="row">    
-                 <div class="actions">         
-                  <a class="waves-effect waves-light btn" href="/users/sign_in" >Log in<i class="material-icons left">person</i></a>
-                 </div>
-               </div> 
+        <div class="row">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
     </div>
   </div>
 <div>
-
-

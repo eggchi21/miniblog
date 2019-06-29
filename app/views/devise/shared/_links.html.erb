@@ -1,13 +1,27 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <div class="col s4">
+    <%= link_to new_session_path(resource_name),class:"waves-effect waves-light btn" do %>
+      <i class="material-icons left">person</i>Log in
+    <% end %>
+  </div>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+  <div class="col s4">
+    <%= link_to new_registration_path(resource_name) ,class:"waves-effect waves-light btn" do %>
+      <i class="material-icons left">person_add</i>Sign up
+    <% end %>
+  </div>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+
+  <div class="col s6">
+    <%= link_to new_password_path(resource_name) ,class:"waves-effect waves-light btn" do %>
+      Forgot your password?
+    <% end %>
+    </div>
+
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

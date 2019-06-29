@@ -4,9 +4,9 @@
               <div class="card-image">
                 <% if @tweet.id % @tweet.user.like_num==0 %>
                   <%= image_tag('aho.jpg') %>
-                <%else%>  
+                <%else%>
                   <%= image_tag('normal.jpg') %>
-                <%end%>  
+                <%end%>
                 <span class="card-title"><%= @tweet.id %>番目</</span>
               </div>
               <div class="card-stacked">
@@ -14,10 +14,7 @@
                       <a href="/users/<%= @tweet.user_id%>"><%= @tweet.user.nickname %></a>
                       <%= simple_format(@tweet.text) %>
                       好きな数字:<%= @tweet.user.like_num %>
-                      <p>好きな数字がこの投稿者と同じ人</p>
-                      <% @users.each do |user| %>
-                        <p><%=user.nickname%></p>
-                      <%end%>
+
                   </div>
                   <div class="card-action">
                       <a class="waves-effect waves-teal"><i class="material-icons">child_care</i></a>
@@ -25,8 +22,14 @@
                       <%=link_to '編集',"/tweets/#{@tweet.id}/edit", method: :get %>
                       <%=link_to '削除',"/tweets/#{@tweet.id}", method: :delete %>
                     <%end%>
-                  </div>  
-              </div>     
+                  </div>
+              </div>
             </div>
           </div>
-  </div>      
+    <div class="carousel" id="demo-carousel">
+       <h5>好きな数字がこの投稿者と同じ人</h5>
+        <% @users.each do |user| %>
+          <a class="carousel-item" href= "/users/<%= user.id %>" ><%=user.nickname%><%= image_tag  @image %></a>
+        <%end%>
+    </div>
+  </div>

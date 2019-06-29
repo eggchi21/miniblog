@@ -32,6 +32,11 @@ class TweetsController < ApplicationController
       @tweet=Tweet.find(params[:id])
       user=@tweet.user
       @users=User.where(like_num: user.like_num)
+      if user.image.url
+        @image=user.image.url
+      else
+        @image='ninjawanko.jpg'
+      end      
     end
 
 
