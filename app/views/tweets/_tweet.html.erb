@@ -1,27 +1,33 @@
-        <div class="col s12 m7">
-          <div class="card horizontal">
-            <div class="card-image">
-              <% if tweet.id%tweet.user.like_num==0 %>
-                <%= image_tag 'aho.jpg' ,:size =>'200x200'%>
-              <%else%>  
-                <%= image_tag 'normal.jpg',:size =>'200x200'%>
-              <%end%>  
-              <span class="card-title"><%= tweet.id %>番目</</span>
-            </div>
-            <div class="card-stacked">
-                <div class="card-content">
-                    <a href="/users/<%= tweet.user_id%>"><%= tweet.user.nickname %></a>
-                    <%= simple_format(tweet.text) %>
-                    好きな数字:<%= tweet.user.like_num %>
-                </div>
-                <div class="card-action">
-                    <a class="waves-effect waves-teal"><i class="material-icons">child_care</i></a>
-                    <%=link_to '詳細', tweet_path(tweet.id), method: :get %>
-                     <%if user_signed_in? && current_user.id==tweet.user_id%>
-                      <%=link_to '編集',"/tweets/#{tweet.id}/edit", method: :get %>
-                      <%=link_to '削除',"/tweets/#{tweet.id}", method: :delete %>
-                    <%end%>                   
-                </div>  
-            </div>     
-          </div>
-        </div>
+<div class="col s12 m7">
+  <div class="card horizontal">
+    <div class="card-image">
+      <%= big3_pic(tweet) %>
+    </div>
+    <div class="card-stacked ">
+        <ul class="collection card-content #fafafa grey lighten-5">
+          <li class="collection-item avatar">
+            <%=link_to "/users/#{tweet.user_id}"  do %>
+              <%=image_tag user_image(tweet),class:'circle'%>
+            <%end%>
+            <%=link_to tweet.user.nickname , "/users/#{tweet.user_id}"  %>
+            <p>
+                <%= simple_format(tweet.text) %>
+            </p>
+            <%if tweet.user.kind==tweet.kind %>
+            <a class="secondary-content"><i class="material-icons">fitness_center</i></a>
+            <%end%>
+          <li class="collection-item">重量:<%=tweet.weight%>kgを<%=tweet.rep%>回<%=tweet.set%>セットで<%=tweet.calorie%>kcal消費しました！</li>
+        </ul>
+      <div class="card-action">
+            <a class="waves-effect waves-teal"><i class="material-icons">fitness_center</i></a>
+          <%if current_page?(tweets_path) or current_page?(root_path) %>
+            <%=link_to '詳細', tweet_path(tweet.id), method: :get %>
+          <%end%>
+          <%if user_signed_in? && current_user.id==tweet.user_id%>
+            <%=link_to '編集',"/tweets/#{tweet.id}/edit", method: :get %>
+            <%=link_to '削除',"/tweets/#{tweet.id}", method: :delete %>
+          <%end%>
+      </div>
+    </div>
+  </div>
+</div>

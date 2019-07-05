@@ -17,6 +17,7 @@
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
       crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
@@ -29,7 +30,7 @@
      <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if user_signed_in? %>
             <li><a href="/tweets/about">About</a></li>
-            <li>好きな数字：<%=current_user.like_num%></li>
+            <li>好きなトレーニング：<%=current_user.kind_i18n%></li>
             <li><a href="/users/<%=current_user.id%>"><%=current_user.nickname%>さん</a></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             <li><a href="/tweets/new">投稿する</a></li>

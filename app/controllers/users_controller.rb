@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     def show
         user=User.find(params[:id])
-        @like_num= user.like_num
+        @kind= user.kind
         @nickname= user.nickname
         @tweets= user.tweets.page(params[:page]).per(5).order("created_at DESC")
         if user.image.url
@@ -9,6 +9,6 @@ class UsersController < ApplicationController
         else
             @image='ninjawanko.jpg'
         end
-        @users=User.where(like_num: user.like_num)
+        @users=User.where(kind: user.kind)
     end
 end

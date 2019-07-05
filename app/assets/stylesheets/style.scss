@@ -1,5 +1,5 @@
 #big3{
-  height: 600px;
+  height: 100vh;
 }
 #benchpress{
   background-image: url('benchpress.jpg');
@@ -12,4 +12,7 @@
 #squat{
   background-image: url('squat.jpg');
   background-size: 100%;
+}
+p{
+  word-break: break-word;
 }

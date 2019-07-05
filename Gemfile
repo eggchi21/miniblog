@@ -77,3 +77,4 @@ gem "actionview", ">= 5.0.7.2"
 
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'enum_help'

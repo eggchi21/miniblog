@@ -1,0 +1,13 @@
+<div class="row">
+  <h5>この人と同じトレーニングが好きな人</h5>
+  <div class="col s12 m5">
+    <div class="carousel #fafafa grey lighten-5" id="recommend_user" >
+      <% users.each do |user| %>
+        <a class="carousel-item" href= "/users/<%= user.id %>" data-id ="<%=user.id %>" >
+          <%=user.nickname%>
+          <%= image_tag  @image,class:'circle' %>
+        </a>
+      <%end%>
+    </div>
+  </div>
+</div>

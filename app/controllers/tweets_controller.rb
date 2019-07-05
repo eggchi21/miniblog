@@ -7,15 +7,18 @@ class TweetsController < ApplicationController
     end
 
     def new
+      @tweet=Tweet.new
     end
 
     def create
-      Tweet.create(text: tweet_params[:text],user_id: current_user.id)
+      Tweet.create(tweet_params)
+      redirect_to root_path
     end
-    
+
     def destroy
       tweet=Tweet.find(params[:id])
       tweet.destroy if tweet.user_id == current_user.id
+      redirect_to root_path
     end
 
     def edit
@@ -31,24 +34,22 @@ class TweetsController < ApplicationController
     def show
       @tweet=Tweet.find(params[:id])
       user=@tweet.user
-      @users=User.where(like_num: user.like_num)
+      @users=User.where.not(id: current_user.id).where(kind: user.kind)
       if user.image.url
         @image=user.image.url
       else
         @image='ninjawanko.jpg'
-      end      
+      end
     end
-
-
 
       private
       def tweet_params
-        params.permit(:text)
+        params.require(:tweet).permit(:kind,:weight,:rep,:set,:calorie,:text).merge(user_id: current_user.id)
       end
 
     def move_to_index
         redirect_to action: :index unless user_signed_in?
     end
 
-  
+
 end

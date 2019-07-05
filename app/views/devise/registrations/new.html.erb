@@ -21,9 +21,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s2">
-              <%= f.label :like_num,"好きな数字" %><br />
-              <%= f.number_field :like_num, autofocus: true, min: 1, max: 7 %>
+            <div class="col s6">
+              <%= f.label :kind,"好きなトレーニング" %><br />
+              <%= f.select :kind, [["男", 1], ["女", 2],["その他", 3]]%>
+              <%# <%= f.select :kind, User.kinds_i18n.invert, {}, placeholder: 0 %> %>
             </div>
           </div>
           <div class="row">
