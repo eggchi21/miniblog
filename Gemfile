@@ -64,3 +64,17 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 gem 'compass-rails', '3.1.0'
 gem 'sprockets', '3.7.2'
+gem 'kaminari'
+gem 'devise'
+gem 'bxslider-rails'
+gem 'jquery-rails'
+
+
+gem 'jbuilder', '~> 2.5'
+
+gem 'sqlite3','1.3.13'
+gem "actionview", ">= 5.0.7.2"
+
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'enum_help'

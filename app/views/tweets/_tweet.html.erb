@@ -1,0 +1,44 @@
+<div class="col s12 m7">
+  <div class="card horizontal">
+    <div class="card-image">
+      <%= big3_pic(tweet) %>
+    </div>
+    <div class="card-stacked ">
+        <ul class="collection card-content #fafafa grey lighten-5">
+          <li class="collection-item avatar">
+            <%=link_to "/users/#{tweet.user_id}"  do %>
+              <%=image_tag user_image(tweet),class:'circle'%>
+            <%end%>
+            <%=link_to tweet.user.nickname , "/users/#{tweet.user_id}"  %>
+            <p>
+                <%= simple_format(tweet.text) %>
+            </p>
+            <%if tweet.user.training==tweet.kind %>
+            <a class="secondary-content"><i class="material-icons">fitness_center</i></a>
+            <%end%>
+          <li class="collection-item">重量:<%=tweet.weight%>kgを<%=tweet.rep%>回<%=tweet.set%>セットで<%=tweet.calorie%>kcal消費しました！</li>
+        </ul>
+      <div class="card-action">
+        <% if user_signed_in? %>
+          <% if Like.find_by(user_id: current_user.id, tweet_id: tweet.id) %>
+            <%= link_to("/likes/#{tweet.id}/destroy", method: "post",class: "like-button") do%>
+              <i class="material-icons middle-size">favorite</i>
+            <%end%>
+          <% else %>
+            <%= link_to("/likes/#{tweet.id}/create",  method: "post",class: "unlike-button") do%>
+              <i class="material-icons middle-size">favorite_border</i>
+            <%end%>
+          <% end %>
+          <a class="like" data-tweet="<%= tweet.id%>"><%= likes_count(tweet) %></a>
+          <%if current_page?(tweets_path) or current_page?(root_path) %>
+            <%=link_to '詳細', tweet_path(tweet.id), method: :get %>
+          <%end%>
+          <%if current_user.id==tweet.user_id%>
+            <%=link_to '編集',"/tweets/#{tweet.id}/edit", method: :get %>
+            <%=link_to '削除',"/tweets/#{tweet.id}", method: :delete %>
+          <%end%>
+        <%end%>
+      </span>
+    </div>
+  </div>
+</div>

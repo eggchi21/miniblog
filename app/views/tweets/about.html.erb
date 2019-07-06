@@ -1,0 +1,32 @@
+<section class="about-main" >
+  <div class="carousel carousel-slider" data-indicators="true" id="big3" >
+    <div class="carousel-fixed-item">
+      <div class="container">
+        <h1 class="white-text">Work Hard See Result</h1>
+      <% if user_signed_in? %>
+        <a class="btn waves-effect white black-text darken-text-2" href="/" target="_blank">HOME</a>
+      <%else%>
+        <a class="btn waves-effect white black-text darken-text-2" href="/users/sign_in" target="_blank">Log in</a>
+      <%end%>
+      </div>
+    </div>
+    <div class="carousel-item big3pic" id="benchpress">
+      <div class="container">
+        <h3 class="white-text">Bench Press</h3>
+        <p class="white-text">chest</p>
+      </div>
+    </div>
+    <div class="carousel-item big3pic" id="deadlift">
+      <div class="container">
+        <h3 class="white-text">Dead Lift</h3>
+        <p class="white-text">back</p>
+      </div>
+    </div>
+    <div class="carousel-item big3pic"  id="squat">
+      <div class="container">
+        <h3 class="white-text">Squat</h3>
+        <p class="white-text">legs</p>
+      </div>
+    </div>
+  </div>
+</section>

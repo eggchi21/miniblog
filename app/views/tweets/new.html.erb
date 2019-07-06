@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="card-panel #fafafa grey lighten-5 col s12">
+      <%= form_for(@tweet) do |f|%><br /><br />
+        <div class="row">
+            <div class="input-field col s2 offset-s1">
+              <%= f.label :kind,"トレーニング内容" %><br />
+              <%= f.select :kind, Tweet.kinds_i18n.invert, {}, placeholder: 0 %>
+            </div>
+        </div>
+        <div class="row" >
+          <div class="input-field col s7 offset-s1">
+            <div class="input-field col s3">
+              <%= f.label :weight,"使用重量"%><br />
+              <%= f.number_field :weight ,placeholder:80 , class:"col s3 count" %>
+              <blockquote class="col 3">Kg</blockquote>
+            </div>
+            <div class="input-field col s3">
+              <%= f.label :set,"セット数"%><br />
+              <%= f.number_field :set,placeholder:3, class:"col s2 count" %>
+              <blockquote class="col 3">SET</blockquote>
+            </div>
+            <div class="input-field col s3">
+              <%= f.label :rep,"1セットあたりの回数"%><br />
+              <%= f.number_field :rep ,placeholder:10 , class:"col s3 count" %>
+              <blockquote class="col 3">REP</blockquote>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s3 offset-s1">
+              <%= f.label :calorie,"EPOCを考慮した消費カロリー" %><br />
+              <%= f.number_field :calorie ,placeholder:583 ,  class:"col s3" %>
+              <blockquote class="col 3">kcal</blockquote>
+            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s10 offset-s1">
+            <%= f.label :text,"コメント"%>
+            <%= f.text_area :text ,maxlength:140,placeholder:"今日も自分を追い込めた？",class:"card-panel input-field ",style: 'height: 100px';%>
+          </div>
+          <div class="col s4 offset-s1">
+            <%= button_tag type: "submit", class: "btn waves-effect waves-light" do %>
+            シェア<i class="material-icons right">send</i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
