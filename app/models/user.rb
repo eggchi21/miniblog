@@ -6,6 +6,5 @@ class User < ApplicationRecord
   enum training: {benchipress: 0, deadlift: 1, squat:2}
   has_many :tweets
   validates :nickname, presence: true
-  validates :training, presence: true
   mount_uploader :image, ImageUploader
 end

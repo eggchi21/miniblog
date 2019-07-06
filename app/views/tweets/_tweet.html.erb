@@ -19,26 +19,26 @@
           <li class="collection-item">重量:<%=tweet.weight%>kgを<%=tweet.rep%>回<%=tweet.set%>セットで<%=tweet.calorie%>kcal消費しました！</li>
         </ul>
       <div class="card-action">
+        <% if user_signed_in? %>
           <% if Like.find_by(user_id: current_user.id, tweet_id: tweet.id) %>
-            <%= link_to("/likes/#{tweet.id}/destroy", {method: "post"}) do%>
-            <i class="material-icons">favorite</i>
-            <%= likes_count(tweet)%>
+            <%= link_to("/likes/#{tweet.id}/destroy", method: "post",class: "like-button") do%>
+              <i class="material-icons middle-size">favorite</i>
             <%end%>
           <% else %>
-            <!-- 以下の1行をcreateアクションへのリンクに書き換えてください -->
-            <%= link_to("/likes/#{tweet.id}/create", {method: "post"}) do%>
-            <i class="material-icons">favorite_border</i>
-            <%= likes_count(tweet) %>
+            <%= link_to("/likes/#{tweet.id}/create",  method: "post",class: "unlike-button") do%>
+              <i class="material-icons middle-size">favorite_border</i>
             <%end%>
           <% end %>
+          <a class="like" data-tweet="<%= tweet.id%>"><%= likes_count(tweet) %></a>
           <%if current_page?(tweets_path) or current_page?(root_path) %>
             <%=link_to '詳細', tweet_path(tweet.id), method: :get %>
           <%end%>
-          <%if user_signed_in? && current_user.id==tweet.user_id%>
+          <%if current_user.id==tweet.user_id%>
             <%=link_to '編集',"/tweets/#{tweet.id}/edit", method: :get %>
             <%=link_to '削除',"/tweets/#{tweet.id}", method: :delete %>
           <%end%>
-      </div>
+        <%end%>
+      </span>
     </div>
   </div>
 </div>
