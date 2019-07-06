@@ -1,16 +1,12 @@
 <div class="container">
- <p><%= @nickname %>さんの投稿一覧</p>
  <div><%= image_tag  @image ,:size =>'200x200'%></div>
- <p>好きなトレーニング<%= @kind %></p>
+ <p>好きなトレーニング<%= @training %></p>
+ <p><%= @nickname %>さんの投稿一覧</p>
     <% @tweets.each do |tweet| %>
      <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
     <% end %>
- <div class="carousel">
-    <h5>好きなトレーニングがこの投稿者と同じ人</h5>
-    <% @users.each do |user| %>
-        <a class="carousel-item" href= "/users/<%= user.id %>" ><%=user.nickname%><%= image_tag  @image %></a>
-    <%end%>
-</div>
+  <%= render partial: "tweets/recommend_user", locals: { users: @users } %>
           <%= paginate(@tweets) %>
     </div>
+
 </div>

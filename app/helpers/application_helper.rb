@@ -16,4 +16,13 @@ module ApplicationHelper
       'ninjawanko.jpg'
     end
   end
+
+  def image(user)
+    if user.image.url
+      user.image.url
+    else
+      'ninjawanko.jpg'
+    end
+  end
+
 end

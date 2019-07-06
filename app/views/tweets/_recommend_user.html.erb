@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col s12 m5">
+    <div class="card">
+    <h6>この人と同じトレーニングが好きな人</h6>
+      <div class="carousel #fafafa grey lighten-5" id="recommend_user" >
+        <% users.each do |user| %>
+          <a class="carousel-item" href= "/users/<%= user.id %>" data-id ="<%=user.id %>" >
+            <%=user.nickname%>
+            <img src="">
+            <%= image_tag  image(user),class:'circle' %>
+          </a>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,7 +13,7 @@
             <p>
                 <%= simple_format(tweet.text) %>
             </p>
-            <%if tweet.user.kind==tweet.kind %>
+            <%if tweet.user.training==tweet.kind %>
             <a class="secondary-content"><i class="material-icons">fitness_center</i></a>
             <%end%>
           <li class="collection-item">重量:<%=tweet.weight%>kgを<%=tweet.rep%>回<%=tweet.set%>セットで<%=tweet.calorie%>kcal消費しました！</li>

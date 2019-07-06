@@ -20,11 +20,10 @@
               <%= f.file_field :image %>
             </div>
           </div>
-          <div class="row">
+           <div class="row">
             <div class="col s6">
-              <%= f.label :kind,"好きなトレーニング" %><br />
-              <%= f.select :kind, [["男", 1], ["女", 2],["その他", 3]]%>
-              <%# <%= f.select :kind, User.kinds_i18n.invert, {}, placeholder: 0 %> %>
+              <%= f.label :training,"好きなトレーニング" %><br />
+              <%= f.select :training, User.trainings_i18n.invert, {}, placeholder: 0 %>
             </div>
           </div>
           <div class="row">
@@ -61,3 +60,11 @@
     </div>
   </div>
 <div>
+
+
+         <%# <div class="row"> %>
+            <%# <div class="col s6"> %>
+              <%# <%= f.label :kind,"好きなトレーニング" %><br />
+              <%# <%= f.select :kind, User.kinds_i18n.invert, {}, placeholder: 0 %>
+            <%# </div> %>
+          <%# </div> %>

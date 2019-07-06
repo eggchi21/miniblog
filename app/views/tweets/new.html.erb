@@ -8,21 +8,21 @@
               <%= f.select :kind, Tweet.kinds_i18n.invert, {}, placeholder: 0 %>
             </div>
         </div>
-        <div class="row">
+        <div class="row" >
           <div class="input-field col s7 offset-s1">
             <div class="input-field col s3">
               <%= f.label :weight,"使用重量"%><br />
-              <%= f.number_field :weight ,placeholder:80 , class:"col s3" %>
+              <%= f.number_field :weight ,placeholder:80 , class:"col s3 count" %>
               <blockquote class="col 3">Kg</blockquote>
             </div>
             <div class="input-field col s3">
               <%= f.label :set,"セット数"%><br />
-              <%= f.number_field :set,placeholder:3, class:"col s2" %>
+              <%= f.number_field :set,placeholder:3, class:"col s2 count" %>
               <blockquote class="col 3">SET</blockquote>
             </div>
             <div class="input-field col s3">
               <%= f.label :rep,"1セットあたりの回数"%><br />
-              <%= f.number_field :rep ,placeholder:10 , class:"col s3" %>
+              <%= f.number_field :rep ,placeholder:10 , class:"col s3 count" %>
               <blockquote class="col 3">REP</blockquote>
             </div>
           </div>

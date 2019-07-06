@@ -2,11 +2,4 @@
   <%= render partial: "tweet", locals: { tweet: @tweet } %>
   <%= render partial: "recommend_user", locals: { users: @users } %>
 </div>
-
-
-  <!-- Gitter Chat Link -->
-<% if user_signed_in? %>
-  <div class="fixed-action-btn">
-  <a class="btn-floating btn-large red" href=""><i class="large material-icons">chat</i></a>
-  </div>
-<%end%>
+<%= render partial: "new"%>

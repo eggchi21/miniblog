@@ -28,13 +28,14 @@ class TweetsController < ApplicationController
       tweet = Tweet.find(params[:id])
       if tweet.user_id == current_user.id
         tweet.update(tweet_params)
+        redirect_to root_path
       end
     end
 
     def show
       @tweet=Tweet.find(params[:id])
       user=@tweet.user
-      @users=User.where.not(id: current_user.id).where(kind: user.kind)
+      @users=User.where.not(id: current_user.id).where(training: user.training)
       if user.image.url
         @image=user.image.url
       else

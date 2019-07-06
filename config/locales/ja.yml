@@ -2,7 +2,7 @@
 ja:
   enums:
     user:
-      kind:
+      training:
         benchipress: "ベンチプレス"
         deadlift: "デッドリフト"
         squat: "スクワット"
