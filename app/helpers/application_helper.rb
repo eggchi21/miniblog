@@ -25,4 +25,8 @@ module ApplicationHelper
     end
   end
 
+  def likes_count(tweet)
+    Like.where(tweet_id: tweet.id).count
+  end
+
 end

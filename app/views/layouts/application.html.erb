@@ -26,10 +26,10 @@
   <body>
     <nav>
     <div class="nav-wrapper">
-      <a href="/tweets" class="brand-logo"><i class="material-icons">fitness_center</i>BIG3 For Taining</a>
+      <a href="/tweets" class="brand-logo"><i class="material-icons">fitness_center</i>EPOC BIG3</a>
      <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if user_signed_in? %>
-            <li><a href="/tweets/about">About</a></li>
+            <li><a href="/tweets/about">ABOUT</a></li>
             <li>好きなトレーニング：<%=current_user.training_i18n%></li>
             <li><a href="/users/<%=current_user.id%>"><%=current_user.nickname%>さん</a></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post "likes/:tweet_id/create" => "likes#create"
+  post "likes/:tweet_id/destroy" => "likes#destroy"
 
   devise_for :users
   get 'tweets/about' => 'tweets#about'

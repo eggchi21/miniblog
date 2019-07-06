@@ -41,6 +41,7 @@ class TweetsController < ApplicationController
       else
         @image='ninjawanko.jpg'
       end
+
     end
 
       private

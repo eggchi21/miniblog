@@ -19,7 +19,18 @@
           <li class="collection-item">重量:<%=tweet.weight%>kgを<%=tweet.rep%>回<%=tweet.set%>セットで<%=tweet.calorie%>kcal消費しました！</li>
         </ul>
       <div class="card-action">
-            <a class="waves-effect waves-teal"><i class="material-icons">fitness_center</i></a>
+          <% if Like.find_by(user_id: current_user.id, tweet_id: tweet.id) %>
+            <%= link_to("/likes/#{tweet.id}/destroy", {method: "post"}) do%>
+            <i class="material-icons">favorite</i>
+            <%= likes_count(tweet)%>
+            <%end%>
+          <% else %>
+            <!-- 以下の1行をcreateアクションへのリンクに書き換えてください -->
+            <%= link_to("/likes/#{tweet.id}/create", {method: "post"}) do%>
+            <i class="material-icons">favorite_border</i>
+            <%= likes_count(tweet) %>
+            <%end%>
+          <% end %>
           <%if current_page?(tweets_path) or current_page?(root_path) %>
             <%=link_to '詳細', tweet_path(tweet.id), method: :get %>
           <%end%>
