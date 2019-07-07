@@ -12,17 +12,17 @@
           <div class="input-field col s7 offset-s1">
             <div class="input-field col s3">
               <%= f.label :weight,"使用重量"%><br />
-              <%= f.number_field :weight ,placeholder:80 , class:"col s3 count" %>
+              <%= f.number_field :weight ,placeholder:80 ,min: 0, class:"col s3 count" %>
               <blockquote class="col 3">Kg</blockquote>
             </div>
             <div class="input-field col s3">
               <%= f.label :set,"セット数"%><br />
-              <%= f.number_field :set,placeholder:3, class:"col s2 count" %>
+              <%= f.number_field :set,placeholder:3, min: 0,class:"col s2 count" %>
               <blockquote class="col 3">SET</blockquote>
             </div>
             <div class="input-field col s3">
               <%= f.label :rep,"1セットあたりの回数"%><br />
-              <%= f.number_field :rep ,placeholder:10 , class:"col s3 count" %>
+              <%= f.number_field :rep ,placeholder:10 ,min: 0, class:"col s3 count" %>
               <blockquote class="col 3">REP</blockquote>
             </div>
           </div>
@@ -30,7 +30,7 @@
         <div class="row">
             <div class="input-field col s3 offset-s1">
               <%= f.label :calorie,"EPOCを考慮した消費カロリー" %><br />
-              <%= f.number_field :calorie ,placeholder:583 ,  class:"col s3" %>
+              <%= f.number_field :calorie ,placeholder:120 , min: 0, class:"col s3" %>
               <blockquote class="col 3">kcal</blockquote>
             </div>
         </div>
