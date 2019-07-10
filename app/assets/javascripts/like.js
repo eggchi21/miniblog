@@ -1,5 +1,4 @@
 $(function(){
-
   $(document).on('click','.unlike-button',function(e){
     e.preventDefault();
     var count= Number($(this).next().text())
@@ -12,8 +11,6 @@ $(function(){
     $(this).parent().prepend(html)
     $(this).remove()
   })
-
-
   $(document).on('click','.like-button',function(e){
     e.preventDefault();
     var count= Number($(this).next().text())
@@ -25,6 +22,5 @@ $(function(){
     $(this).next().text(count-1)
     $(this).parent().prepend(html)
     $(this).remove()
-
   })
 })

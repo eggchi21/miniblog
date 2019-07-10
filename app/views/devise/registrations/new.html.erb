@@ -20,7 +20,7 @@
               <%= f.file_field :image %>
             </div>
           </div>
-           <div class="row">
+          <div class="row">
             <div class="col s6">
               <%= f.label :training,"好きなトレーニング" %><br />
               <%= f.select :training, User.trainings_i18n.invert, {}, placeholder: 0 %>
