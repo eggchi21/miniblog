@@ -21,15 +21,11 @@
       <div class="card-action">
         <% if user_signed_in? %>
           <% if Like.find_by(user_id: current_user.id, tweet_id: tweet.id) %>
-            <%= link_to("/likes/#{tweet.id}/destroy", method: "post",class: "like-button") do%>
-              <i class="material-icons middle-size">favorite</i>
-            <%end%>
+              <button class="like-button like" ><i class="material-icons middle-size ">favorite</i></button>
           <% else %>
-            <%= link_to("/likes/#{tweet.id}/create",  method: "post",class: "unlike-button") do%>
-              <i class="material-icons middle-size">favorite_border</i>
-            <%end%>
+              <button class ="unlike-button like"><i class="material-icons middle-size ">favorite_border</i></button>
           <% end %>
-          <a class="like" data-tweet="<%= tweet.id%>"><%= likes_count(tweet) %></a>
+          <a class="like like_count" data-tweet="<%= tweet.id%>"><%= likes_count(tweet) %></a>
           <%if current_page?(tweets_path) or current_page?(root_path) %>
             <%=link_to '詳細', tweet_path(tweet.id), method: :get %>
           <%end%>

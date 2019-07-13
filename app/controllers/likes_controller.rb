@@ -3,18 +3,22 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    like=Like.where(user_id: current_user.id,tweet_id: params[:tweet_id])
-    if like.length==0
-      @like=Like.new(user_id: current_user.id,tweet_id: params[:tweet_id])
-      @like.save
+    @like=Like.where(user_id: current_user.id, tweet_id: params[:id])
+    Like.create(user_id: current_user.id,tweet_id: params[:id])     if @like.length==0
+    @likes=Like.where(tweet_id: params[:id])
+    respond_to do |format|
+      format.html { redirect_to :root }
+      format.json { render json: @likes}
     end
   end
 
   def destroy
-    like=Like.where(user_id: current_user.id,tweet_id: params[:tweet_id])
-    if like.length==1
-      @like = Like.find_by(user_id: current_user.id, tweet_id: params[:tweet_id])
-      @like.destroy
+    @like=Like.find_by(user_id: current_user.id,tweet_id: params[:id])
+    @like.destroy
+    @likes=Like.where(tweet_id: params[:id])
+    respond_to do |format|
+      format.html { redirect_to :root }
+      format.json { render json: @likes}
     end
   end
 
